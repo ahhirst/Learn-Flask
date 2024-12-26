@@ -1,0 +1,23 @@
+{
+  "editor.cursorBlinking": "blink",
+  "editor.cursorStyle": "line",
+  // "editorCursor.foreground":"#84ffff",
+  "editor.tokenColorCustomizations": {},
+  "editor.fontSize": 16,
+
+  "workbench.colorCustomizations": {
+    // Your customizations here
+    // "editorCursor.foreground": "#84ffff",
+    // "editorCursor.background": "#f61212"
+    // "editor.selectionBackground": "#0080CC",
+    // "editor.background": "url('path/to/your/image.jpg')",
+    "editorCursor.background": "#282828", // Dark Gray background
+    "editorCursor.foreground": "#FFFFFF" // White foreground
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "notebook.defaultFormatter": "njpwerner.autodocstring",
+  "livePreview.showServerStatusNotifications": false,
+  "editor.cursorWidth": 4
+}

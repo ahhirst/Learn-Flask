@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <!-- <script>
+        function resetForm() {
+            document.getElementById("searchForm").reset();
+        }
+    </script> -->
+    <script>
+        document.getElementById("myForm").onsubmit = function () {
+            setTimeout(() => {
+                this.reset();  // Form reset
+            }, 100);  // Wait for the form to submit
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Student Details</h1>
+    <form action="/index" id="myForm" method="post">
+        <label for="name">Name :</label>
+        <input type="text" name="name" id="name" required>
+        <input type="submit" value="Search">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div style="color: red;">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+    </form>
+
+
+    <table border="1">
+        <thead>
+            {% for da in columns %}
+            <th>{{da}}</th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                {% for dak in d %}
+                <td>{{ dak }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% if search %}
+    <h1>Search Result</h1>
+
+    <table border="1">
+        <thead>
+            <!-- {% if columns %} -->
+            <th>{{columns[0]}}</th>
+            <th>{{search[0]}}</th>
+            <!-- <th>{{columns[1]}}</th> -->
+            <!-- {% endif %} -->
+        </thead>
+        <tbody>
+            {% for c,d in combined %}
+            <tr>
+                <td>{{ c }}</td>
+                <td>{{ d }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% endif %}
+    <div><a href="/logout">logout</a></div>
+    <div><a href="/update" target="_blank">update</a></div>
+    <div><a href="/session_data">Session Data</a></div>
+    <!-- <div><a href="/logout">logout</a></div> -->
+</body>
+
+</html>
